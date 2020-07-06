@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>LwcAccountSearch</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>cardComponent</members>
+        <members>headingComponent</members>
+        <members>ldsDetailComponent</members>
+        <members>picklistSearch</members>
+        <members>pubSub</members>
+        <members>rootParent</members>
+        <members>searchResults</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <version>48.0</version>
+</Package>

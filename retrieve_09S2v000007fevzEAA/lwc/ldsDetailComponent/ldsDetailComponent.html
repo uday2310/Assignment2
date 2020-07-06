@@ -1,0 +1,97 @@
+<template>
+    <template if:true={account.data}>
+        <template if:true={showLdsDetail}>
+            <template if:true={showView}>
+                <lightning-card title="Account Detail">
+                    <lightning-button label="Edit" onclick={handleEditAccount} slot="actions"></lightning-button>
+                    <div class="slds-p-around_small">
+                        <p><b>Id</b></p>
+                        <p>
+                            <lightning-formatted-text value={account.data.id}></lightning-formatted-text>
+                        </p>
+                        <p><b>Name</b></p>
+                        <p>
+                            <lightning-formatted-text value={account.data.fields.Name.value}></lightning-formatted-text>
+                        </p>
+                        <p><b>Industry</b></p>
+                        <p>
+                            <lightning-formatted-text value={account.data.fields.Industry.value}>
+                            </lightning-formatted-text>
+                        </p>
+                        <p><b>Phone</b></p>
+                        <p>
+                            <lightning-formatted-text value={account.data.fields.Phone.value}>
+                            </lightning-formatted-text>
+                        </p>
+                        <p><b>Account Number</b></p>
+                        <p>
+                            <lightning-formatted-text value={account.data.fields.AccountNumber.value}>
+                            </lightning-formatted-text>
+                        </p>
+                        <p><b>Type</b></p>
+                        <p>
+                            <lightning-formatted-text value={account.data.fields.Type.value}></lightning-formatted-text>
+                        </p>
+                        <p><b>Rating</b></p>
+                        <p>
+                            <lightning-formatted-text value={account.data.fields.Rating.value}>
+                            </lightning-formatted-text>
+                        </p>
+                    </div>
+                </lightning-card>
+            </template>
+
+            <template if:false={showView}>
+                <lightning-card title="Account Edit">
+                    <div class="slds-p-around_small">
+                        <lightning-input label="Id" disabled value={account.data.id}></lightning-input>
+                        <lightning-input label="Name" value={account.data.fields.Name.value} data-field="Name"
+                            onchange={handleChange} required></lightning-input>
+                        <lightning-combobox label="Industry" value={account.data.fields.Industry.value}
+                            options={industryOptionsWithNone} data-field="Industry">
+                        </lightning-combobox>
+                        <lightning-input type="number" label="Phone" value={account.data.fields.Phone.value}
+                            data-field="Phone" max-length="10" onchange={handleChange}></lightning-input>
+                        <lightning-input label="Account Number" value={account.data.fields.AccountNumber.value}
+                            data-field="Account Number" onchange={handleChange}></lightning-input>
+                        <lightning-combobox label="Type" value={account.data.fields.Type.value}
+                            options={typeOptionsWithNone} data-field="Type">
+                        </lightning-combobox>
+                        <lightning-combobox label="Rating" value={account.data.fields.Rating.value}
+                            options={ratingOptionsWithNone} data-field="Rating">
+                        </lightning-combobox>
+                    </div><br />
+                    <div class="slds-p-around_small">
+                        <lightning-button label="Update" variant="brand" onclick={handleUpdateAccount}>
+                        </lightning-button>
+                        <lightning-button label="Cancel" onclick={handleCancelOperation}></lightning-button>
+                    </div>
+                </lightning-card>
+            </template>
+        </template>
+
+        <template if:false={showLdsDetail}>
+            <div class="slds-m-around_medium">
+                <p>No selection is made</p>
+            </div>
+        </template>
+
+    </template>
+
+    <template if:false={account.data}>
+        <div class="slds-m-around_medium">
+            <p>No selection is made</p>
+        </div>
+    </template>
+
+
+    <template if:true={account.error}>
+        <div class="slds-align_absolute-center">
+            <p>Error getting record from server</p>
+            <p>{account.error}</p>
+        </div>
+    </template>
+
+
+
+</template>

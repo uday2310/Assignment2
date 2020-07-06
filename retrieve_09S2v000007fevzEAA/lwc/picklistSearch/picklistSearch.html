@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-p-around_small">
+        <template if:true={options}>
+            <lightning-card title="Search Account">
+                <lightning-layout multiple-rows="true" class="slds-p-around_small" horizontal-align="centre">
+                    <lightning-layout-item size="9" padding="horizontal-small">
+                        <lightning-combobox value={value} options={allOptions} onchange={handleTypeChange}>
+                        </lightning-combobox>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" alignment-bump="top">
+                        <lightning-button variant="brand" label="Search" onclick={handleSearchOperation}></lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-card>
+        </template>
+
+        <template if:true={error}>
+            <div>
+                <p class="slds-align_absolute-center">{error}</p>
+            </div>
+        </template>
+
+    </div>
+</template>

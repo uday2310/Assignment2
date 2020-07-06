@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title={account.Name} icon-name="standard:account">
+
+        <div class="slds-p-around_small">
+            <div>
+                <p><b>Account Number: </b>{account.AccountNumber}</p>
+                <p><b>Account Type: </b>{account.Type}</p>
+                <p><b>Account Rating: </b>{account.Rating}</p>
+                <p><b>Account Industry: </b>{account.Industry}</p>
+            </div><br/>
+            <div class="slds-align_absolute-center">
+                <lightning-button label="Detail" onclick={handleDetailAccount}></lightning-button>
+            </div>
+        </div>
+
+    </lightning-card>
+</template>
